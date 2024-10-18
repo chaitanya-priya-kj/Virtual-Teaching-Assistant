@@ -18,7 +18,7 @@ import pandas as pd
 import gc
 import streamlit as st
 
-api_key = "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"  # Replace with your OpenAI API key
+api_key = ""  # Replace with your OpenAI API key
 os.environ["OPENAI_API_KEY"] = api_key
 
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
