@@ -1,0 +1,111 @@
+Image Name,Transcript
+000000_433.8.jpg,welcome back so today we're going to
+000001_500.5.jpg,
+000002_533.9.jpg,
+000003_567.2.jpg,
+000004_600.6.jpg,
+000005_700.7.jpg,
+000006_767.4.jpg,
+000007_800.8.jpg,
+000008_834.2.jpg,
+000009_867.5.jpg,
+000010_900.9.jpg,
+000011_934.3.jpg,
+000012_967.6.jpg,
+000013_1434.8.jpg,
+000014_1468.1.jpg,
+000015_1568.2.jpg,
+000016_1601.6.jpg,
+000017_1668.3.jpg,
+000018_1701.7.jpg,
+000019_5338.7.jpg,talk about chapter 8 of the book tree based methods for regression
+000020_8241.6.jpg,classification and we'll see their methods for supervised learning with
+000021_8408.4.jpg,
+000022_8508.5.jpg,
+000023_8608.6.jpg,
+000024_8708.7.jpg,
+000025_8808.8.jpg,
+000026_9142.5.jpg,
+000027_9242.6.jpg,
+000028_9309.3.jpg,
+000029_86586.5.jpg,stratify or segment the predictor space in order to make predictions and they form what are called decision trees in their in their stratification and we'll talk about those methods which are actually from the start in the mid 80s I'd say and some of the names that associated with that well first of all the software package was started in the method is called cart for classification and regression trees and the is the first two authors of cart are leo breiman who was a well known statistician from Berkeley and Jerry Friedman who is our colleague here at Stanford and Friedman actually was one of our teachers tracked liaison Trevor and I were graduate students here and that's when the the caught book came out right and actually we're gonna hope we hope to talk to Jerry in this course I mean you'll get a chance to hear him talk about the development of trees and how that happened in the 80s so that's the first part of the section is on trees and then we'll talk about bagging and boosting and random forests which are which combine trees in a more modern way it's interesting because trees were used widely for a number of years as one of the primary learning tools and now trees are used widely as building blocks in
+000030_90757.3.jpg,some of the more modern learning tools so they've been around for a long time
+000031_134567.8.jpg,and they're gonna stay around right so in a little more detail that the good side of trees as you'll see they're simple in a sense especially if they're small and and hence they can be useful for interpretation on the other hand when you look at them as supervised learning techniques for prediction they're typically not competitive with the best the best methods at around but they can be made competitive when they're combined in ensembles of trees and we'll talk about that in the second part of the lecture in particular bagging random forests and boosting and they were methods which are developed in the in the 90s and and Beyond which improved the predict the prediction performance of trees substantially okay so let's start the beginning the
+000032_295662.0.jpg,basic idea of a decision tree and this applies to both regression and classification will start with regression and a little later we'll consider classification okay so before we actually see a tree let's think about how we would stratify some data so here's the the baseball data the response is salary and which we've color-coded in this graph from low salary being blue and green to higher salary being yo and red for baseball players and each player has we've measured two predictors number of years he's been in the league in the baseball league and the number of hits he hits per season okay so we want to predict salary from those two predictors so if I asked you to stratify this population and we tried to separate the high from low salary players what would you do well if you look at it looks like the higher salaries are up here right and the lower ones are maybe in this L shape so one might think there's a place you might might say well let's split around here this this split separates the pitcher space into two regions right the higher salaries we see some yellow and red up here all those mixed with some blue and green and the lower ones on the left right so that does a pretty good job of putting out the low salary players on the Left does no a great job on the right so it might do a further split row you know so it looks like you've cut it five years this it's years this number of years in the league right now really yeah so which makes sense because the players that are in the league longer no can expect to have a higher salary first ones and then League lower have a lower salary but those with more years in the league seem to be a bit mixed right they're bit mix so it looks like we're our job isn't quite done but maybe we could do a refinement by stratifying in this way right and now we have three regions we've got we've got that the high salary players up here and where these players these are ones who have been in the league more than maybe you're on five years and who have made more than maybe 125 hits right they're the ones who have the highest salary and then the medium category looks like it's down here they've got also more than roughly five years of experience but fewer number of hits and then the lower is on the left so with just two simple cuts you've made a pretty good segmentation it exactly and this is gonna be this is the idea of a decision tree which will will actually we'll see on the next slide when we applied a decision tree technique to that data we got exactly this tree and this tree is very much like what I drew in the previous slide um and just see on the next side I've got the caption for
+000033_298965.3.jpg,this figure and throughout the notes we have a detailed caption for a lot of the
+000034_304304.0.jpg,figures I'm not going to read out the caption in the course but it says therefore for your reference if you want
+000035_306472.8.jpg,to if you want us to read the details
+000036_336536.2.jpg,but let's look at this tree and interpret what it's saying first of all I mean what the layout is first of all so this this is a series of splits at the top we have we have all the data the top and this year is less than 4.5 as a split it's a partition in two on the left the players who are in the league for less than four point five years on the right players in the league for more than four point five years so this is pretty much the split we saw that I made here right
+000037_341674.7.jpg,this split here is I said at five but
+000038_405738.7.jpg,that's roughly off four point five is between 4 & 5 so this split at the top of the tree is a partition into the left and right regions so this tree says we're going to first all going to split players on the years of experience those with more than 4.5 years are assigned the left node and those with more than 4.5 assigned to the right and what's that number at the bottom member yeah so the number the bottom is the is the I think the at the average log response I think we took logs here so it's the average log salary of the players who fell into that bin on the right we do a further split on hits among the players who have more than 4.5 years experience those who also have fewer than one 17.5 hits are assigned to this branch otherwise to this branch so we end up with 3 3 bins from highest salary medium salary and lowest salary and these are exactly the well almost exactly the three regions that I drew
+000039_410209.8.jpg,here just by hand okay so here actually
+000040_411077.3.jpg,
+000041_411310.9.jpg,
+000042_416416.0.jpg,is the details the partition that corresponds to that tree and it's very
+000043_428861.8.jpg,much like the one I drew by hand the splits being given there's the top split and here's the split on the left this was found by an algorithm but it smell might algorithm and actually the algorithm we're gonna describe is going to build a much larger tree and then
+000044_429395.6.jpg,
+000045_439872.8.jpg,it's gonna prune it from the bottom to give this three node tree but that so the automatic algorithm is gonna do what we looked looks to be quite sensible in
+000046_440673.6.jpg,
+000047_443109.3.jpg,this example to divide into three regions okay some terminology which I've
+000048_444310.5.jpg,
+000049_448448.0.jpg,already been using the the the nodes at
+000050_479345.5.jpg,the bottom are called terminal nodes is there that there the terminal they're not further split you notice I'm calling these trees but they're they're upside down right the leaves are the bottom where at the top it's just for convenience the the non terminals are called internal nodes which in this case are the we have two in terminals and our internal nodes in our tree but usually the the the sorry internal nodes the terminals are the ones of interest because they're the ones that describe the partitioning of the predictor space
+000051_480480.0.jpg,so how do we interpret that tree well
+000052_485818.7.jpg,it's we split first on the years of experience so that's saying the most
+000053_512512.0.jpg,important factor is determines our ease years of experience those with less experience could have lower salary on that left branch we didn't split any further so it looks like the the the number of hits isn't important in determining salary for the pair is less experienced but on the right where we have the players with more experience we've we the hits is important right so notice what we're saying here is that
+000054_513946.8.jpg,this is not a symmetric tree right we
+000055_514380.5.jpg,
+000056_514881.0.jpg,
+000057_515314.8.jpg,
+000058_535468.3.jpg,split once to give us a left pocket but then on the right we we split again the the this bucket in do two more buckets on it so the point being the number of hits seems to be important for those with more than 4.5 years experience but not important for those with fewer than 4.5 now again
+000059_535935.4.jpg,
+000060_536669.5.jpg,
+000061_537503.6.jpg,
+000062_539205.3.jpg,
+000063_544544.0.jpg,this gets the point that I said earlier it's a very simple tree which makes it
+000064_560560.0.jpg,very easy to display and interpret right there's no equation one thing that scares non statistician collaborators that we have scares them sometimes if they don't know much math and you write an equation down for a model you know it's it's not very it's it's intimidating not very attractive to them
+000065_563429.5.jpg,one nice thing about a tree is that the the tree is the model right this is the
+000066_563829.9.jpg,
+000067_564397.2.jpg,
+000068_564830.9.jpg,
+000069_572805.6.jpg,summary of the model and we don't need an equation to summarize it so it's something is simple to understand by people who aren't comfortable mathematics on the other hand it's
+000070_573306.1.jpg,
+000071_573406.2.jpg,
+000072_573906.7.jpg,
+000073_576209.0.jpg,probably much simpler than it it
+000074_576576.0.jpg,
+000075_581914.7.jpg,deserves to be right and for that reason well for one of those reasons is it's
+000076_591724.5.jpg,the prediction error of trees is not not very good compared to other methods and we'll see we can improve it substantially with we combine ensembles of trees so I haven't said in detail how
+000077_630129.5.jpg,how we actually got that tree I said that the tree that we saw there actually was very close to the one that we got just by intuitively splitting the feature space but how does the automatic tree tree growing algorithm work well the idea is we want to divide that the predictor space into non-overlapping regions some some j regions some number j which will have to pick as well in the case of the previous and that example j was 3 and having grown the tree the prediction as we've seen just the average of the response values that fall into each unit each of the terminal nodes but how do we actually decide on
+000078_723456.1.jpg,the splits on the shape on the the partition of the feature space well if we thought in the most general way we could think about trying to divide the feature space in into boxes mean that the edges of the regions are parallel to the axes we want to do that for interpretation right if we had a region which was a circle it'd be really hard to interpret predictor space but even getting ourselves into boxes that turns out the the the tree building process is is difficult so let's suppose exactly the problem we want we might want to solve we define our boxes as our one through our Jade for some number of boxes J then we might want to find the the boxes so that if we sum up the the variation of the observations around the mean of each box so the RJ is the set of observations falling in the Jade box and y hat RJ is the average of such of the responsibles observations so that those are the averages at the terminal nodes in the tree right exactly so each box represents one of those terminal Leafs right where you're gonna represent the observations by an average yeah right and we have in this case a such terminal leaves and we're gonna choose a set of boxes that set the total variation of observations around their mean in a box as as small as possible that makes sense right because we want the boxes to be homogeneous and to have observations which are very similar in each box and across boxes will be very different so this looks like a reasonable way to pose the Box finding problem the turns out
+000079_726058.7.jpg,actually that's too hard to solve computationally if you say I want to say
+000080_731397.3.jpg,find the ten boxes that that have the
+000081_731530.8.jpg,
+000082_740373.0.jpg,smallest value of this criterion it's actually computationally infeasible well 10 might be solvable but certainly beyond you know 10 or 20 or 50 it gets very hard especially if you think about
+000083_742074.7.jpg,how many ways you can make boxes it's
+000084_747413.3.jpg,you know the number just boggles it just gets big very first so exactly so trees
+000085_777009.6.jpg,use an approximation sort of an obvious method top-down greedy approach and it's top-down because it starts at the top with it with a whole set of observations and then it splits them into two pieces one at a time at each level it's greedy because it doesn't find the best split among all possible splits but only the best split at the immediate place is looking so let's go through the details
+000086_777243.1.jpg,
+000087_779445.3.jpg,of the tree growing process I've got on
+000088_782481.7.jpg,this slide that might be easier to go back to the little tree we have there
+000089_782915.5.jpg,
+000090_783249.1.jpg,
+000091_783716.3.jpg,
+000092_784450.3.jpg,and just talk through it there so well
+000093_784784.0.jpg,
+000094_784984.2.jpg,
+000095_785484.7.jpg,
+000096_785885.1.jpg,
+000097_850983.5.jpg,what we do is we top we start at the top with the full set of data and all the predictors and we look for the predictor and the split that purses that the smallest criterion the one we had written down which is the sum of squares of the response around each response around is the average in the note so we're gonna make a split to produce two notes when I look at all possible predictors and all split points that produce the smallest criterion value and so that's before we had three nerds here so there'd just be a mean in the lift and a mean in the right exactly right so we're starting with a full-day day with actually with the only one note we're gonna split into two and the winner was this was the predictor years at four point five producing these two branches the left and the right and then the process is repeated we look and we find the the best split we can among the left and right nodes and the winner was hits at one 17.5 so again each case we're doing the best we can in a greedy sense and that produced these three terminal nodes okay so let's go back to
+000098_851317.1.jpg,
+000099_851717.5.jpg,
+000100_852117.9.jpg,
+000101_852518.3.jpg,the
+000102_853486.0.jpg,
+000103_854153.3.jpg,
+000104_854186.7.jpg,
+000105_855387.9.jpg,
+000106_855621.4.jpg,
+000107_859525.3.jpg,so I've said that in much detail on this slide and then the question is or one
+000108_864864.0.jpg,question is when do we stop we could
+000109_875541.3.jpg,decide to stop to just do a small number of nodes like create maybe three nodes like in that tree or we could just grow a larger tree

@@ -1,0 +1,203 @@
+Image Name,Transcript
+000000_1201.2.jpg,okay yeah we are back again we've learnt
+000001_5338.7.jpg,about trees and how to use trees in our
+000002_10677.3.jpg,and now we're going to see how to use trees in in context of random forests
+000003_16016.0.jpg,and boosting and we'll see this gives us pretty powerful predictors so there's
+000004_21354.7.jpg,two packages random forests and boost
+000005_26693.3.jpg,and GBM which does boost in we'll start off with random forests so as we know
+000006_32032.0.jpg,random forests will actually build lots
+000007_37370.7.jpg,of trees and then average them and
+000008_42709.3.jpg,reduce the variance of bushy trees by averaging so we load the random forest
+000009_48048.0.jpg,package and we're going to use a Boston housing data again and that's in the
+000010_53386.7.jpg,mass package so we'll get that up we will set a random seed and let's have a
+000011_58725.3.jpg,look we see we got five hundred and six observations in in the Boston housing
+000012_64064.0.jpg,data and we're going to make a training set of size 300 so we'll use the same
+000013_69402.7.jpg,construct as we used before and we've got there we've got indexes for training
+000014_74741.3.jpg,let's just look at the Boston housing data so we can we can query we can run a
+000015_80080.0.jpg,help query on that and we see it's a it's a 506 suburbs of Boston and for
+000016_85418.7.jpg,each suburb we've got demographics and
+000017_90757.3.jpg,things like crime per capita types of Industry average number of rooms per
+000018_96096.0.jpg,dwelling average proportion and the age
+000019_101434.7.jpg,of the houses and various things and what we're going to use as a response is
+000020_106773.3.jpg,the median value of owner-occupied homes for each of these counties for each of
+000021_112112.0.jpg,these suburbs okay so it's a it's a datasets been around it was based on the
+000022_117450.7.jpg,1970 census in in Boston okay so so we
+000023_122789.3.jpg,all start off with a random forest and
+000024_128128.0.jpg,it's same kind of strong construct as before the responses made V median value
+000025_133466.7.jpg,and to be modeled as dot which means as a
+000026_138805.3.jpg,function of all the other variables and we want to use the Train subset and very fast random forests and we can just
+000027_144144.0.jpg,print out the random forest gives us a summary and it tells us a number of
+000028_149482.7.jpg,trees so that was 500 trees were growing
+000029_154821.3.jpg,and they bushy trees each of them says you can see that was pretty fast and it
+000030_160160.0.jpg,gives you a summary of the fit it gives you a means mean squared residual and the percentage variance he explained and
+000031_165498.7.jpg,when we studied random forests in the notes we talked about the out of bag
+000032_170837.3.jpg,error so these are out of bag mean squared residuals so each each
+000033_176176.0.jpg,observation was predicted using the the average of trees that didn't include it
+000034_181514.7.jpg,so these are sort of the biased estimates of of prediction error so one
+000035_186853.3.jpg,of the tuning the pretty much only
+000036_192192.0.jpg,tuning parameter in a random forest is the variable called M try the the
+000037_197530.7.jpg,argument called M try which is the number of variables that are selected at each split of each tree when you when
+000038_202869.3.jpg,you come to make a split so if M try for
+000039_208208.0.jpg,example is four of the thirteen variables in the in the Boston housing data for selected at random each time
+000040_213546.7.jpg,you come to split a node four would be
+000041_218885.3.jpg,selected at random and then the split would be confined to one of those four variables and so that's how random
+000042_224224.0.jpg,forests D correlates the trees so what we going to do is we're going to fit a
+000043_229562.7.jpg,series of random forests the 13 variables so we're going to have M try range through the values 1 to 13 and and
+000044_234901.3.jpg,then we're going to record the errors and so we set up two variables to do the
+000045_240240.0.jpg,recording of the errors and then we go in a loop for M try in 1 to 13 we're
+000046_245578.7.jpg,going to fit the random forest with that value of M try and yeah we all just
+000047_250917.3.jpg,restrict the number of trees to be 400 for no good reason except that 400 is
+000048_256256.0.jpg,sufficient here and we give em try as an argument and of course it's fit on the
+000049_261594.7.jpg,training data and we can straight away plug in to extract the mean squared
+000050_266933.3.jpg,error because that's out of bag error that's on the on the object so we do that
+000051_272272.0.jpg,and then we predict on the test data so there's Boston - train and past as the
+000052_277610.7.jpg,data in the argument to predict and fit be in the fit of the random forest and
+000053_282949.3.jpg,and then we compute the test error so
+000054_288288.0.jpg,there's our with construction again Boston - train and we compute the mean squared error so it's mean of made V -
+000055_293626.7.jpg,spread squared made V will be picked off
+000056_298965.3.jpg,the data frame Boston - train so these commands we've still in the loop so it's
+000057_304304.0.jpg,not actually executed and they will we'll just in case it takes long we'll
+000058_309642.7.jpg,we'll print out the value of M tries it's going okay so here we go and look
+000059_314981.3.jpg,how fast that is so it's 13 times 400 trees have been growing here and it's
+000060_320320.0.jpg,done and now we can make a plot and so we actually use a map plot command
+000061_325658.7.jpg,because we've got two columns we've got tested Erin out of bagged error lube good error so we see bind them together
+000062_330997.3.jpg,to make a two column matrix and then we make a single plot with Matt plot and
+000063_336336.0.jpg,you can see we put some other arguments in the matrix we told it to use plotting
+000064_341674.7.jpg,character 19 which I like we gave two colors red and blue and type equals B
+000065_347013.3.jpg,means type equals both means it plots both points and connects them with lines
+000066_352352.0.jpg,and and we gave it a while a mean squared error and we can put a legend in
+000067_357690.7.jpg,the top right corner and we see the red
+000068_363029.3.jpg,points are out of bag and the blue points or test error now ideally those two curves should line up pretty much
+000069_368368.0.jpg,and it seems like the test error is a bit lower but be warned there's a lot of
+000070_379045.3.jpg,variability in these test error estimates and so since the out of bag was computed on one data set and the test error on a different data set and they weren't weren't very large these these differences are pretty much well
+000071_384384.0.jpg,within the with the the standard errors and don't get fooled by the fact that
+000072_395061.3.jpg,that the red curve is smoothly above the blue curve these error estimates are very correlated because the the the random forests with em try equals four is very similar to the one with em try
+000073_400400.0.jpg,equals five and so you know so that's what why these curves are each
+000074_405738.7.jpg,of the curves is quite smooth okay um what we do see is that em try around for
+000075_411077.3.jpg,seems to be about the best at least for
+000076_416416.0.jpg,the test error for the out-of-bag error around about eight so somewhere in the
+000077_421754.7.jpg,middle it's quite a flat plateau there and and and and with very little with
+000078_427093.3.jpg,very few tears we've we've had a very powerful prediction model this is the
+000079_432432.0.jpg,random forest here and and got pretty good performance just as appointed two points to note
+000080_437770.7.jpg,here on the left-hand side is a performance of a single tree so this
+000081_443109.3.jpg,will be a bushy tree but that's a performance of a single bushy tree and that the mean squared error on the out
+000082_448448.0.jpg,of bag is twenty six and we dropped down to about just over fourteen years so
+000083_453786.7.jpg,it's almost it's just a little bit above half so we reduced the error by half and
+000084_459125.3.jpg,and likewise for the test error and these errors are somewhat different but
+000085_464464.0.jpg,by using a random forest and on the right hand side here we use all thirteen
+000086_469802.7.jpg,variables so this is actually bagging which was random forests and bagging
+000087_475141.3.jpg,with you to leo breiman bagging came out earlier and random for us to a later enhancement and so these are all
+000088_480480.0.jpg,produced using the random forest function in our now random forests as we
+000089_485818.7.jpg,learnt in the know in in the course notes and lectures random forests
+000090_491157.3.jpg,reduced the variance of the trees by averaging so it grows big bushy trees
+000091_496496.0.jpg,and then gets rid of the variance by averaging boosting on the other hand is really going off to bias and so boosting
+000092_501834.7.jpg,grows short smaller stabia trees and
+000093_507173.3.jpg,then and and and goes at the bias so we use the package GBM gradient boosted
+000094_512512.0.jpg,machines in our so we load up that package and we're going to use the same
+000095_517850.7.jpg,data set here and so they would give a call to GBM pretty much the same as a
+000096_523189.3.jpg,call to random forest GBM asked for the
+000097_528528.0.jpg,distribution which is gaussian because we do in squared error loss we're going to ask GBM for ten thousand trees which
+000098_533866.7.jpg,sounds like a lot but these are going to be shallow trees
+000099_539205.3.jpg,and that's given by interaction depth so interaction depth is the number of
+000100_544544.0.jpg,splits so we're going to say we only want four slits in each of the trees so it will do best first split in and and
+000101_549882.7.jpg,it'll stop it after four splits and then
+000102_555221.3.jpg,shrinkage is point zero one so that's how much we're going to shrink the trees there back so I just chose these
+000103_560560.0.jpg,parameters one would normally fiddle around with these parameters to decide which to use and so yes jeep Wow look at
+000104_565898.7.jpg,"that 10,000 trees fit in in a few"
+000105_571237.3.jpg,seconds so we can do a summary and as what summary does is that it actually
+000106_576576.0.jpg,gives a variable importance plot and and
+000107_581914.7.jpg,it's there's there's two variables have seemed to be the most important there's
+000108_587253.3.jpg,the number of rooms and this this oh the
+000109_592592.0.jpg,second variable is L stat which is the
+000110_597930.7.jpg,percentage of lower status economic status people in the in the community
+000111_603269.3.jpg,and so those are the two most important variables but there aren't all labeled
+000112_608608.0.jpg,in this plot yeah because because of the font size we're using if we reduce the
+000113_613946.7.jpg,font size font size we would have seen them all labeled so the variable
+000114_619285.3.jpg,importance plot is a good way of seen it seems like these two variables are by far the most important then the other
+000115_624624.0.jpg,variables play a lesser role we can do
+000116_629962.7.jpg,partial dependence plots so let's plot these top two variables and so this
+000117_635301.3.jpg,shows us it's kind of a roughly relationship and it shows us that the
+000118_640640.0.jpg,the higher the proportion of lower
+000119_645978.7.jpg,status people in the in the suburb the lower the value of the house and housing
+000120_651317.3.jpg,prices not not a big surprise there and
+000121_656656.0.jpg,reversed relationship with the number of rooms the average number of rooms in the
+000122_661994.7.jpg,house increases the price increases so no big surprise is there
+000123_667333.3.jpg,okay so what we get on end off the session by by by predicting our boosted
+000124_672672.0.jpg,bottle on the test dataset normally one
+000125_678010.7.jpg,would would use cross-validation in boosting to select the number of trees we won't do that yeah we leave that up
+000126_683349.3.jpg,to you to do you'd have to run the cross-validation yourself and in fact
+000127_688688.0.jpg,these other tuning parameters like this the the shrinkage parameter is a tuning
+000128_694026.7.jpg,parameter one we'd probably use cross-validation to select that as well
+000129_699365.3.jpg,and so it's a little bit more work and and fiddly stuff to be done with boosting over random forests but often
+000130_704704.0.jpg,it's worth it so what we will do here is
+000131_710042.7.jpg,we will just look at the the test performance as a function of the number
+000132_715381.3.jpg,of trees and so we make a grid of number of trees in steps of a hundred from 100
+000133_720720.0.jpg,"to 10,000 by okay so will you use seek to do that and then we run the predict"
+000134_726058.7.jpg,function on the boosted model and it
+000135_731397.3.jpg,takes Endor trees as an argument and so it was pretty quick and it's produced a
+000136_736736.0.jpg,matrix of predictions on the test data there 206 test observations um and if
+000137_747413.3.jpg,you see we've got a hundred different predict vectors at those 100 different values of of tree and so then we compute
+000138_752752.0.jpg,the test error for each of those and we use the apply function so we use our
+000139_758090.7.jpg,with command again and we use the apply function and now print Matt's a matrix
+000140_763429.3.jpg,but made these a vector and so this just recycles this vector so that's a little
+000141_768768.0.jpg,bit of trickery that I often use in our it's handy so so that recycles that so
+000142_774106.7.jpg,this is actually a matrix of differences and then we apply to the columns of
+000143_779445.3.jpg,these squared differences the mean and so that'll compute the column wise mean
+000144_784784.0.jpg,squared error for these guys and and it did that and then we'll we'll make a
+000145_790122.7.jpg,plot and we see the the boosting error
+000146_795461.3.jpg,plot and it pretty much drops down and
+000147_800800.0.jpg,drops down lower and look like then the random forest this is a function of the number of trees and then
+000148_811477.3.jpg,seems to level off and it doesn't appear to be increasing if you if you really ramped up the number of trees to a much bigger number it would slowly start to increase but this this is evidence of
+000149_816816.0.jpg,the of the claim that boosting is reluctant to overfit and it certainly
+000150_822154.7.jpg,seems to be the case here if we go back
+000151_827493.3.jpg,and replay our random forest performance
+000152_832832.0.jpg,
+000153_838170.7.jpg,so here we go and and now we can go back
+000154_843509.3.jpg,in and include boosted results in that
+000155_848848.0.jpg,
+000156_854186.7.jpg,plot we see it's doing about that's not
+000157_859525.3.jpg,
+000158_864864.0.jpg,what I wanted okay I did the wrong plot so there's a
+000159_870202.7.jpg,what I'm doing actually what I'm intended to do was there's our boosted
+000160_875541.3.jpg,plot and I'm gonna include the best test error from the random forest over there so there we go and we see that boosting
+000161_880880.0.jpg,actually got a reasonable amount below
+000162_886218.7.jpg,the test error for the random forest okay so there we have it random forests
+000163_891557.3.jpg,and boosting two powerful methods our experiences at boosting especially if
+000164_896896.0.jpg,you willing to go through the tweaking and that and the tuning will usually
+000165_902234.7.jpg,outperform random forests but random forests are really deadly easy
+000166_907573.3.jpg,they won't over fit the only tuning parameter is the EM try but the number
+000167_912912.0.jpg,of when I say they weren't over fit by buying increasing the number of trees in
+000168_918250.7.jpg,random forests it won't over fit it'll it'll just once it stabilizes it's it's
+000169_923589.3.jpg,stabilized and and adding more trees doesn't make much difference it's boosting not the case you've got
+000170_928928.0.jpg,genuine tuning parameters the number of trees the shrinkage parameter and the depth
+000171_934266.7.jpg,but both very powerful methods
+000172_934500.2.jpg,
+000173_934533.6.jpg,
+000174_934567.0.jpg,
+000175_934600.3.jpg,
+000176_934633.7.jpg,
+000177_934667.1.jpg,
+000178_934700.4.jpg,
+000179_934733.8.jpg,
+000180_934767.2.jpg,
+000181_934800.5.jpg,
+000182_934833.9.jpg,
+000183_934867.3.jpg,
+000184_934900.6.jpg,
+000185_934934.0.jpg,
+000186_934967.4.jpg,
+000187_935000.7.jpg,
+000188_935034.1.jpg,
+000189_935067.5.jpg,
+000190_935100.8.jpg,
+000191_935134.2.jpg,
+000192_935167.6.jpg,
+000193_935200.9.jpg,
+000194_935234.3.jpg,
+000195_935267.7.jpg,
+000196_935301.0.jpg,
+000197_935334.4.jpg,
+000198_935367.8.jpg,
+000199_935401.1.jpg,
+000200_935434.5.jpg,
+000201_935467.9.jpg,

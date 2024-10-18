@@ -1,0 +1,80 @@
+Image Name,Transcript
+000000_867.5.jpg,okay well so there's so far we've been
+000001_900.9.jpg,
+000002_934.3.jpg,
+000003_967.6.jpg,
+000004_1001.0.jpg,
+000005_1067.7.jpg,
+000006_1101.1.jpg,
+000007_1167.8.jpg,
+000008_1201.2.jpg,
+000009_1234.6.jpg,
+000010_1267.9.jpg,
+000011_1301.3.jpg,
+000012_1368.0.jpg,
+000013_1401.4.jpg,
+000014_1434.8.jpg,
+000015_1468.1.jpg,
+000016_1501.5.jpg,
+000017_1568.2.jpg,
+000018_1601.6.jpg,
+000019_1635.0.jpg,
+000020_1668.3.jpg,
+000021_5338.7.jpg,talking about regression trees the response was quantitative salaries in
+000022_10677.3.jpg,this case of baseball players often time trees are used when the response is a
+000023_16016.0.jpg,categorical variable and so then we call those classification trees but you'll
+000024_21354.7.jpg,see that technologies is very similar and we just have to change the essentially the loss function and how we
+000025_25025.0.jpg,measure good performance so let's see
+000026_25091.7.jpg,
+000027_25125.1.jpg,
+000028_25158.5.jpg,
+000029_25191.8.jpg,
+000030_25258.6.jpg,
+000031_25291.9.jpg,
+000032_25358.7.jpg,
+000033_25392.0.jpg,
+000034_25425.4.jpg,
+000035_25492.1.jpg,
+000036_25525.5.jpg,
+000037_25592.2.jpg,how that goes
+000038_25625.6.jpg,
+000039_25659.0.jpg,
+000040_25725.7.jpg,
+000041_25759.1.jpg,
+000042_25825.8.jpg,
+000043_25859.2.jpg,
+000044_44277.6.jpg,so we're going to predict in a classification tree each observation belonging to the most commonly occurring class yeah so that's what's going to happen in the in the terminal node of the tree as in instead of just giving the prediction being the mean we're gonna classify to the most common class
+000045_48048.0.jpg,we're going to grow the tree in a very
+000046_53386.7.jpg,same way as we did for classification trees but we don't use residual sum of
+000047_96096.0.jpg,squares as a criterion for making the splits we need a criterion that's more geared towards classification so one thing you can do is that each internal node you can just look at the classification error rate and and that's easy to compute so suppose suppose class K a bigger pond so it suppose you've got capital K classes and you compute the proportion in the terminal node in each of the classes from 1 up to capital K well the class you're going to classify is going to choose a class that's that's got the largest of those probabilities those proportions and the error you're going to make is going to be 1 minus
+000048_101434.7.jpg,that maximum right so all the ones that don't belong to the maximum class are going to be counted as errors so you
+000049_122789.3.jpg,could use that to to decide on the split and so that's a proportion of errors you're going to make but it turns out that that's a little bit jumpy and noisy and it's not very it doesn't lead to a very smooth tree growing process and for that reason some other measures are preferable one measure is the Jena index
+000050_122956.2.jpg,
+000051_202869.3.jpg,and it's a kind of variance measure across the classes so you've got K classes capital K classes often case two but not necessarily and this for those who know the binomial distribution this is each of the terms is like a binomial variance and in fact for the multinomial this is the diagonal of the these on the diagonal of the covariance matrix so this this is a measure of total variability in the in that region and if the Jena index is really small what that means is pretty much one classes is favored and all the rest are really small whereas an extreme case travel writer if the reason is purest is all one class then the one of those P has to be one there has to be zero and G will be zero that's a good that's a good point and and on the other hand if I guess if they're all equally distributed in the classes this gene I and X will be maximum and and but it moves in a ninja's in a smooth way so that's one of the the criteria that are very popular and it it's also known as a purity index it measures of purity of the class an alternative is is the deviance or crossing to entropy and this
+000052_221387.8.jpg,is based on the binomial log like you to the multinomial log likelihood and it's a measure that's yeah is rather similarly to to the Gini index and either of these are used and and give very similar results so let's look at an
+000053_224224.0.jpg,example we'll look at the hard data
+000054_257523.9.jpg,these data have a binary response called HD there's 303 patients and they're all represented with chest pains so the outcome has a value yes indicates the presence of heart disease based on an angiographic test what no means no heart disease for these data they're 13 predictors amongst them age sex cholesterol and other heart and lung function measurements and so we grew we ran the tree growing process with cross validation and we see what we get in the
+000055_427360.3.jpg,next figure at the top you see the full tree growing to do all the data and you can see it's quite a bushy tree with an early split split on Terrell it's actually it's a it's a thallium stress test a thallium stressed is okay and and then the to the left and right no it's a split on on CI we calcium I think which is calcium and and then the subsequent splits it's hard to see yeah but you get these pictures are in the book so quite a bushy tree and you see that the terminal nodes of this tree are that the classifications no or yes so that means an observation that for example ended up in this leftmost terminal node yet the majority in that class were knows no heart disease and so the test vacation produced would be a no where's the the right end one-year is a yes interesting this terminal node has to knows so if they both predicted no why was the a split here at all well it must mean that one of these nodes is purer than the others so even though they were both ended up having a majority of knows that one node was pure than the other node and the gene I index would identify such such a node so this tree is probably too bushy and so once again cross-validation was used and again we see in the right-hand panel the results of cross-validation and we see the the training error the test error and the validation error yeah we've actually looked at the training error averaged over each of the cross-validation folds which is why it's a little jumpy and actually even increases in one pointer because the trees and the architecture of the trees are different in each of the folds the cross-validation and and test error we had a left our test set II as well those curves look pretty much the same and we end up seeing that a tree size of around about six tends to to do well these bars on these cross validation and test curves or standard error bars so there's quite a bit of variability the datasets not that big and on the right here we see the prune back tree that pruned back to size 6 Corsa prune Ian was again governed by the cost complexity parameter alpha and this year will be a subtree of the big tree grown and that gave the best classification performance which is estimated to be around about 25 percent error in this case in this in this
+000056_432432.0.jpg,figure we should be sure we compare
+000057_542909.0.jpg,trees with linear models trees aren't always the right thing to do and so to contrast that we look at two different scenarios in this in this cartoon Xia the the truth is indicated by these two colors in this top left panel the truth is actually best affected by linear model so the decision boundary in this case but between the two classes is based in by a line okay and in this case the trees not going to do very well we see a tree in the trees attempt to partition the space and you know while it does a valiant job it just doesn't do well enough because it's confined to pick boxy regions right so there'd be a split over here split over there and then this region was subdivided in that region was subdivided in an attempt to get at this linear decision boundary so this would be classified as as as page this would be classified as green beige green and so on in a step ePHI in a step refashion on the other end in the lower in the lower two panels the the optimal region is a blocky kind of partition region and your a linear model is not going to do well in the left panel we see the best linear approximation to this decision boundary and it's going to make lots of errors because you know whether one single linear boundary it's hard to approximate a rectangular region like this and of course in this one a tree will nail it so it'll but with two splits that can get the decision boundary perfectly so some problems are more naturally suited to trees some problems aren't and so the idea is we're going to think of trees as one tool in r2 box and we will use it very appropriate but of course we also bear in mind simply linear models as well so that is
+000058_543142.6.jpg,
+000059_544544.0.jpg,
+000060_549882.7.jpg,to wrap up the section on trees then we've seen some there's advantages and disadvantages and since they're simple
+000061_555221.3.jpg,if the trees are small not too many terminal nodes because they're easy to
+000062_560560.0.jpg,display and to understand for non-specialist and for example we look
+000063_561227.3.jpg,back at this heart disease tree right
+000064_562261.7.jpg,
+000065_604870.9.jpg,the prune one in the bottom right a doctor might like this tree because it's it it mimics in a sense the way his decision-making process might work I was trying to say whether patient has heart disease he might first do an initial test on based on thallium stress test and if he failed that test then do a further test based on calcium and decide about heart disease if the if the test was passed we might again do a calcium test and then fall by some other criteria so you stratify the population in a series of simple rules to try to determine whether a patient is of high or low risk so for that reason it's trees are popular because of their simplicity and the fact that they they they mimic the way some people make
+000066_606472.5.jpg,decisions as a series of of splits and
+000067_606706.1.jpg,
+000068_608608.0.jpg,
+000069_613946.7.jpg,they can they can display it in a simple tree which means again they're attractive because there aren't
+000070_619285.3.jpg,equations to have to understand they can also handle quality predictors without
+000071_624624.0.jpg,the needed have to create dummy variables there was us some of the categorical variables can be have more than two levels and we can you can split
+000072_629962.7.jpg,a categorical variable into two sets of subcategories so these are all good
+000073_635301.3.jpg,things the big downside is that the they
+000074_640640.0.jpg,don't predict so well compared to two more state-of-the-art methods and we'll see for example for the hard data that
+000075_645978.7.jpg,they predict the prediction accuracy of a tree is not very good compared to other methods the other method we'll
+000076_651317.3.jpg,talk about now actually use trees but in an ensemble they combine trees they
+000077_656656.0.jpg,build many trees on the same data and then the average of combine them in some
+000078_660793.5.jpg,way and in the process they improve the prediction error substantially

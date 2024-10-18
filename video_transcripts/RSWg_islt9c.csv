@@ -1,0 +1,107 @@
+Image Name,Transcript
+000000_433.8.jpg,so our next topic is boosting and
+000001_500.5.jpg,
+000002_533.9.jpg,
+000003_600.6.jpg,
+000004_634.0.jpg,
+000005_667.3.jpg,
+000006_700.7.jpg,
+000007_734.1.jpg,
+000008_767.4.jpg,
+000009_5338.7.jpg,boosting is is a relatively new method as well and similar to bagging and
+000010_6139.5.jpg,
+000011_6172.8.jpg,
+000012_6206.2.jpg,
+000013_6239.6.jpg,
+000014_6272.9.jpg,
+000015_6306.3.jpg,
+000016_6373.0.jpg,
+000017_6406.4.jpg,
+000018_6439.8.jpg,
+000019_6473.1.jpg,
+000020_6539.9.jpg,
+000021_6606.6.jpg,
+000022_6640.0.jpg,
+000023_6773.4.jpg,
+000024_6806.8.jpg,
+000025_6840.2.jpg,
+000026_10677.3.jpg,random forests that bulls gives prediction models that are averages of
+000027_16016.0.jpg,over trees but there's a fundamental difference random forests and bagging
+000028_21354.7.jpg,the trees that are averaged are all equivalent and the averaging is is just
+000029_26693.3.jpg,used to reduce variance with boostin it's a sequential method and each of the
+000030_32032.0.jpg,trees that's that's added into the mixed is added to improve on the performance
+000031_35168.5.jpg,of the of the previous collection of trees so that's a fundamental difference
+000032_35235.2.jpg,
+000033_35268.6.jpg,
+000034_35301.9.jpg,
+000035_35335.3.jpg,
+000036_35402.0.jpg,
+000037_35435.4.jpg,
+000038_35502.1.jpg,
+000039_35535.5.jpg,
+000040_35602.2.jpg,
+000041_35702.3.jpg,
+000042_35735.7.jpg,
+000043_37370.7.jpg,
+000044_38171.5.jpg,
+000045_169402.6.jpg,we look at first boosting for regression trees it's simpler to explain them and we just think of it as a sequential algorithm and the bottom line is with boosting what we do is we keep on fitting trees to the residuals and so we improve the fit and and so we can describe that very easily here we start off and we trying to build a function f of X which is going to be an average of trees and this is in this is evaluated at some point X so we think of it as a function it'll start off as zero and the residuals will just be the data observations weii and what we're going to do is sequentially learnt from be going from 1 up to capital B we'll just keep on going we're going to fit a tree with D splits in other words D plus 1 terminal nodes to the training data X and R where R is the current residual initially the residuals are just the observations ok so we build a relatively small tree to the residuals and then we're going to update the function by adding that tree into our current model so our current model starts off at 0 and now repeatedly we're gonna add in the tree that we've just grown and when we add it in we actually shrink it down by a factor lambda so there's these two components grow in a tree to the residuals and then adding in some shrunken version of it into your current model in that lab is pretty small right it's like we're gonna see about point 0 1 for example as a value of lambda so really shrinking it down okay and then of course you update the residuals because the residuals will be change by a corresponding amount and so you keep on doing that bro treat to the residuals added into your function down date the resented residuals and continue and you can see at the end of the day your model your boosted model has this form it's a sum of shrunken trees all B of them growing to the data now these trees are not independent of each other like they were in random forests and boosting because each tree was growing to the residuals left over from the previous collection of trees okay so what's the
+000046_169636.1.jpg,
+000047_170837.3.jpg,
+000048_176176.0.jpg,idea behind this procedure well for a single tree we can fitted large tree to the data and fit the data hard with a
+000049_234901.3.jpg,large tree we can over fit so in contrast to the idea of boosting us to learn more slowly so we start with why we build the tree - why and it can sometimes be a small tree but rather than accept the full tree we shrink it back but by a lot for example factor 0.01 and then we take residuals and repeat so that the idea being that instead of to avoid overfitting we're going to fit very slowly and try to add each trays try to pick up a small piece of the signal with the next tree so instead of trying to grab a lot of signal with with over it with with a large amount of fitting we're gonna fits very slowly in some in small parts shrinking each time in order to to approximately the signal without overfitting and as a nice consequence is we'd actually have to grow very large trees as we didn't in ran a force quite often smaller trees fit in this slow sequential manner will be very effective
+000050_235435.2.jpg,
+000051_240240.0.jpg,boosting also works for classification and it's similar in spirit but it's
+000052_275141.5.jpg,slightly more complex so we're not going to go in detail yeah but and in fact we don't go into more detail in the textbook but there's a there's a detail section in other textbook elements of statistical learning in chapter 10 and and you can learn about how boosting works for classification doesn't stop you using boosting for classification is our package GBM which we use in the exercises and and the examples and we will use in the our session and that handles a variety of regression and classification problems okay so let's see the results
+000053_340239.9.jpg,of boosting for the gene expression data this these are test errors the orange curves is boosting depth one so what that means is actually each treats that a single split sometimes called a stump right so a very very simple tree which again might seem a little crazy but we're gonna use five five thousand of them and when they're used in the skin this is a sequential slow fitting way it actually does quite well the air is about what's about seven or eight percent random forests oh sorry I ran a force a little higher here that they're about 12 or 13 percent using a depth to tree which means two splits we do maybe a little worse than the simple stump model so again it's quite striking the very very simple model applied in a slow and sequential way at the end of it we get a an ensemble that actually predicts very well so Rob it seems like the depth of the tree that you're using boosting becomes a choosing parameter exactly well thank you for the lead-in to the next slide which is the tuning
+000054_341174.2.jpg,
+000055_348748.4.jpg,parameters so there's a bunch of 20 parameters Trevor to just mention one the depth that she let me just put them all up so well the the the third one
+000056_352352.0.jpg,here I've written is what Trevor does
+000057_357690.7.jpg,mention did that the number of splits of the tree is a tuning parameter the the
+000058_363029.3.jpg,depth is called sometimes older D is if d is one it's simply a stump which we
+000059_368368.0.jpg,saw was successful in the previous example and if we D is larger it allows
+000060_373706.7.jpg,that the interaction between predictors so typically one tries a few values of D maybe D equals one two four and eight
+000061_379045.3.jpg,that might be a typical example depending on on the size of your data
+000062_384384.0.jpg,set the number of predictors I would say if D is one each little tree can only involve a single variable
+000063_389722.7.jpg,alright so it's it's actually on an additive function of a single variable so there's no interactions allowed and
+000064_395061.3.jpg,if D equals two it can involve at most two variables right so there's pairwise interactions so yeah interesting
+000065_400400.0.jpg,so one tuning parameter the number of trees
+000066_405738.7.jpg,is also tuning parameter unlocking
+000067_409442.4.jpg,random forest with a number of trees you just went far enough so that you
+000068_409809.4.jpg,
+000069_435268.2.jpg,till you stop you're getting the benefit of averaging right I think it's still the case that that the number of trees is not a hugely important parameter it's possible to overfit but it takes a very large number to typically start to cause overfitting and here we see we're out to five thousand and not much is really happening in terms of overfit I think especially depends on the problem in some problems you will see the curves really going up that classification problems that often just levels out like
+000070_435935.5.jpg,
+000071_437770.7.jpg,that so the other one is the shrinkage
+000072_459125.3.jpg,parameter remember every time we we grow a tree we don't accept the full tree rather we shrink it back by a quite small fraction and typically 0.0100 point zero zero one are the choices one uses so there's these three tuning parameters one can just try a few values of each one and and look at the
+000073_464297.2.jpg,cross-validation error for over the over the grid to choose good sets of parameters
+000074_586886.3.jpg,here's that so I have a couple more examples here from actually from earlier data mining book this is the California housing data looking at the housing prices and we have the the test error here as a function of number of trees for a number of methods we've talked about random forests M equals to two have to remember how many variables there are well I have to look in our in Chapter ten or fifteen of our book two to check that but the using random forests with only two variables allowed at each split gives you an error of a boat you know 0.39 random forests with more splits improve things abut a bit GBM gradient boosting machine this is the r package that does it does boosting its we'll see in the lab with depth four and eight trees is are doing somewhat better looks like it looks like they stood on their way down as well exactly so maybe in this example one should have run even more troops another example this is a spam data from our your book chapter 15 this is again a two class problem with about fifty predictors what do we have here well it's first another case where a single tree is really not very good right we've even we've even truncated the scale here because it's they're going on somewhere above 7% single tree bagging as we bag we level off at around five and a half percent random forests probably isn't the the the default of the square root of P as the number of predictors to select it every note has an area reduces that by the scale is pretty compressed half a percent and then boosting five node trees gets another maybe half percent so these two methods are quite good and they're you know I think we've seen a lot of examples they're pretty comparable when the same performance yeah those look like they might be you know quite two different curves but actually if you do the proper statistical test ain't no you're not significantly different okay this
+000075_587253.3.jpg,
+000076_592592.0.jpg,actually last topic variable the importance of variables how do you
+000077_672672.0.jpg,measure importance of variables and trees and bagging a boosting and in random forests well there's no single that there's no single parameter no coefficient with the standard error you can can refer to because trees use variables in multiple places right every time you split a variable could could participate in the split so what's done in in in bagging random forces is we one records the the total drop in our SS for a given predictor over all splits in the tree so if we look at all the possible Swit we would like to see where the variable was involved in that split if it was we measure how much it dropped it there are SS and that's averaged over all the trees so the higher the better and a similar thing with G night index for classification trees so what you get is a essentially a qualitative ranking this is that the variable importance for the heart data and you can see the volume stress test is that a very importance of a hundred things are usually normalized so that the top variable has a hundred and you can see the other variables are indicated here in terms of their importance from calcium down two variables with lower importance so these variable importance plots are quite a important part of the random forest toolkit also used in boosting the
+000078_676075.4.jpg,same plot is used in boosting so to
+000079_678010.7.jpg,summarize we've talked about decision
+000080_710042.7.jpg,trees and using ensembles of trees the on the plus side that they're simple and interpretable when they're small as we've seen that in examples we've seen in other examples of that they're often not very competitive in terms of prediction error so some some newer methods bagging random forests and boosting use these used trees in combination as an ensemble and in the process that they can prove prediction area quite considerably and the result is that these that the the last few methods we talk to a random forest and boosting are really among the
+000081_713679.6.jpg,state-of-the-art techniques for supervised learning so if you're
+000082_713779.7.jpg,
+000083_714080.0.jpg,
+000084_714146.8.jpg,
+000085_714213.5.jpg,
+000086_715381.3.jpg,interested in prediction and really just
+000087_720720.0.jpg,prediction performance that they're very good techniques for interpretation as we've seen they're they're they're more challenging
+000088_722221.5.jpg,
+000089_722254.9.jpg,
+000090_722288.2.jpg,
+000091_722321.6.jpg,
+000092_722355.0.jpg,
+000093_722388.3.jpg,
+000094_722421.7.jpg,
+000095_722455.1.jpg,
+000096_722488.4.jpg,
+000097_722521.8.jpg,
+000098_722555.2.jpg,
+000099_722588.5.jpg,
+000100_722621.9.jpg,
+000101_722655.3.jpg,
+000102_722688.6.jpg,
+000103_722722.0.jpg,
+000104_722755.4.jpg,
+000105_722788.7.jpg,

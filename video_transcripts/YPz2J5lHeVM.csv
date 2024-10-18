@@ -1,0 +1,127 @@
+Image Name,Transcript
+000000_1368.0.jpg,okay here we are today we're going to
+000001_1601.6.jpg,
+000002_2302.3.jpg,
+000003_5338.7.jpg,look at trees and lots of trees you're
+000004_10677.3.jpg,going to look at decision trees and then later on we can look at random forests
+000005_16016.0.jpg,and we're gonna see how to fit these in our and just as before we use in our studio and so here we are we've got in
+000006_21354.7.jpg,our studio session and we're going to
+000007_26693.3.jpg,use markdown and we'll start off by just getting our packages loaded including
+000008_32032.0.jpg,the tree package which you need to load and we're going to start off with the
+000009_33299.9.jpg,car seats data so we got all those
+000010_37370.7.jpg,loaded and let's just have a look at our
+000011_42709.3.jpg,data we are look at the histogram of sales and we see sales is a quantitative
+000012_48048.0.jpg,variable I want to demonstrate using
+000013_53386.7.jpg,trees with a with a binary response so we'll turn sales into a binary variable
+000014_58725.3.jpg,which will create called hi and you'll
+000015_64064.0.jpg,see there if else sales is less than 8 we will say it's the it's not high so
+000016_69402.7.jpg,the sales are not high otherwise yes so that if else is a handy construct okay
+000017_74741.3.jpg,and and now we will put hi back onto our data frame in which we can just use with
+000018_80080.0.jpg,the data frame command and it's smart enough these car seats is a data frame
+000019_85418.7.jpg,so really got some variables it includes a variable high on it so there we're done and so now we created a binary
+000020_90757.3.jpg,variable and now we're going to fit them model using trees now of course we can't
+000021_96096.0.jpg,leave sales if we're going to use the dot notation as we have before we have
+000022_101434.7.jpg,to exclude sales because the the our response here hi was created from sales
+000023_106773.3.jpg,so you can put a minus sign in a formula so we got hi twiddle dot minus sales so
+000024_112112.0.jpg,that means model hi as a function of
+000025_117450.7.jpg,everything except sales you've taken sales out and you can subtract other variables out the formula as well so
+000026_122789.3.jpg,it's just a handy way of doing it and so we foot the tree and now we we do a
+000027_128128.0.jpg,summary and under knee and we see the summary below there we see the variables
+000028_133466.7.jpg,that we involved number of terminal nodes
+000029_138805.3.jpg,residual mean deviance which in this case is yeah it's a binary response so
+000030_144144.0.jpg,it's a binomial deviance and we can plot
+000031_145545.4.jpg,the tree which we do and you get a plot
+000032_149482.7.jpg,
+000033_154821.3.jpg,of a binary tree you see all the terminal nodes and you can annotate it with a command text which is very handy
+000034_160160.0.jpg,now on the in this picture yeah the font
+000035_165498.7.jpg,is bigger I made the font big enough so that you could see it of course what
+000036_170837.3.jpg,that means is you can't actually see all the details but there's so many variables there's so many splits in this
+000037_176176.0.jpg,tree that it's a complex tree to to to to look at so we wouldn't really learn a
+000038_181514.7.jpg,huge amount from this tree and what you do see is that each of the terminal nodes so if we look down here at the
+000039_186853.3.jpg,terminal nodes they labeled yes or no and and each of the splitting variables
+000040_192192.0.jpg,is labeled at the place where the split took place and at which value of their
+000041_197530.7.jpg,variable the split occurred and then by the time you get to a terminal node the
+000042_202869.3.jpg,the the vote goes the label is according to the majority of the yeses or knows in
+000043_208208.0.jpg,this case that are in the terminal node okay so that's that's we've grown a tree
+000044_213546.7.jpg,and we've plotted it and this tree is a
+000045_218885.3.jpg,little bit big so we're gonna we're gonna see how we can prune it down you
+000046_224224.0.jpg,can look at a detailed version of the tree in which we would do by just
+000047_227527.3.jpg,printing and so we type tree and you'll
+000048_229562.7.jpg,see we've got a printout it basically
+000049_232131.9.jpg,
+000050_232265.4.jpg,
+000051_234901.3.jpg,gives a details of every single terminal
+000052_240240.0.jpg,node so the root it tells you how many observations at the root what's the mean
+000053_245578.7.jpg,deviance at the root and and then for
+000054_250917.3.jpg,every single split in variable it and
+000055_256256.0.jpg,this is a proportion of yeses and noes at the root and for every single node is
+000056_261594.7.jpg,numbered and you can see if you can see how the numbering works by by going down
+000057_266933.3.jpg,the tree and it gives you details of every node in so that's handy especially if you want
+000058_272272.0.jpg,to extract the details from the tree for you know for other purposes okay so what
+000059_275041.4.jpg,
+000060_277610.7.jpg,
+000061_282949.3.jpg,we're going to do now is we're going to create a trainee and we're going to split our car seat state into training
+000062_288288.0.jpg,and test hit so we'll make it 250 to 150 these 400 observations in all and as as
+000063_293626.7.jpg,we often do be all set to see just to make a results reproducible I I make I
+000064_298965.3.jpg,make a habit of never waste hitting the
+000065_304304.0.jpg,same seeds I jump around use different seeds which is not a bad idea and and
+000066_309642.7.jpg,then we sample from the that we're going to be gonna take a random sample of the of the ID numbers of the samples the
+000067_314981.3.jpg,index numbers of the samples so we sample from the set 1 to n row number of
+000068_320320.0.jpg,rows of car seats which is 400 we know that and we want to sample of size 250
+000069_325658.7.jpg,default by default sample uses with replacement without replacement I should
+000070_330997.3.jpg,say and and so now we got this index head train which index has 250 of the
+000071_336336.0.jpg,400 observations
+000072_341674.7.jpg,so now we can refit our model using tree same formula except we tell the tree to
+000073_347013.3.jpg,use a subset equals train so it will just use that subset and when we make
+000074_352352.0.jpg,the plot the plot looks seems to look a little bit different because it's a
+000075_357690.7.jpg,slightly different data set that the complexity of the tree looks roughly the
+000076_363029.3.jpg,same and so now we're gonna what we're going to do is take this big bushy tree
+000077_368368.0.jpg,and predict it on the on the test set
+000078_373706.7.jpg,which and we use the predict method for trees and so there we go
+000079_379045.3.jpg,tree dot print gets predict we give it the fitted tree tree dot car seats and
+000080_384384.0.jpg,then we give it the data on which we want to predict now we want to use a test data so that's the data frame car
+000081_389722.7.jpg,seats indexed with - trains and we want to remove the the training observation
+000082_395061.3.jpg,which will of course leave the test observations and then we also tell a type equals class because you can make
+000083_400400.0.jpg,different types of predictions in particular can predict the probabilities here we
+000084_405738.7.jpg,want to actually predict the class labels and so we do that and now we want to evaluate the error and so yeah use
+000085_411077.3.jpg,the width command again so with car seats - train so that's with the test
+000086_416416.0.jpg,data so this is a handy way of just
+000087_421754.7.jpg,assigning a data frame as the context in which to do the next command and the
+000088_427093.3.jpg,next command is table the tree dot pred which we just computed which is the
+000089_432432.0.jpg,classification on the test data and the variable hai which is going to be in that that test data set so there we get
+000090_437770.7.jpg,a little miss classification table and
+000091_443109.3.jpg,the diagonals are the correct classifications on the off diagonals or the or the incorrect classifications so
+000092_448448.0.jpg,yeah we all just record the correct so we'll take the the sum of the two
+000093_452085.0.jpg,diagonals divided by the total which is 150-year and we see that we get a an
+000094_453786.7.jpg,error rate of 0.7 but there's this big
+000095_459125.3.jpg,bushy tree so we know that when we grow
+000096_464464.0.jpg,bushy tree it could have too much variance and so now we're going to use
+000097_469802.7.jpg,cross-validation to prune the tree optimally and so we do that using CV
+000098_475141.3.jpg,tree and we tell it that we want to use miss classification error as the basis
+000099_480480.0.jpg,for doing the pruning so this will do 10-fold cross-validation for us and we
+000100_485818.7.jpg,can we can print out the results it was
+000101_491157.3.jpg,very quick and it it tells you the some details of the path of the
+000102_496496.0.jpg,cross-validation so it tells you this the size of the trees as they were pruned back tells you the deviance as
+000103_501834.7.jpg,the pruning proceeded and notice the deviant drops down and then it seems to
+000104_507173.3.jpg,increase and it tells you what the cost
+000105_512512.0.jpg,complexity parameter was in the process now you can actually plot this guy and
+000106_517850.7.jpg,so if we plot it we see this kind of jumpy because it's miss classification error on and on two hundred and fifty
+000107_523189.3.jpg,cross validated points it's somewhat jumpy and but we see it does seem to
+000108_528528.0.jpg,bottom out before it it increases
+000109_533866.7.jpg,so let's pick a value down near the minimum so we will pick 13 which is somewhere in the middle and we are prune
+000110_539205.3.jpg,out tree two to a size of 13 to find
+000111_544544.0.jpg,identify that tree now this is the tree put on the full training data okay and
+000112_549882.7.jpg,we can plot that tree and and annotate
+000113_555221.3.jpg,it as well so it's a little bit shallower than the the previous trees
+000114_560560.0.jpg,and now we can actually read the labels and so that's the result of cross-validation and now we can evaluate
+000115_565898.7.jpg,it on our test data set again so this is
+000116_571237.3.jpg,just a repeat of the commands we had before we get a table it doesn't look much different actually and in fact it seems
+000117_576576.0.jpg,like the the correct classifications dropped a little bit but it's probably
+000118_581914.7.jpg,just one observation so we didn't get too much from pruning except we got a shallower tree which is is easier to
+000119_587253.3.jpg,interpret so so that's using trees trees
+000120_592592.0.jpg,are very handy especially if you get shallow trees they they nicely interpret
+000121_597930.7.jpg,you can you know you can describe them to people you can see exactly what's going on often case trees don't give
+000122_603269.3.jpg,very good prediction errors so in the next session we're going to look at
+000123_608608.0.jpg,random forests and boostin which tend to outperform trees as far as prediction
+000124_611611.0.jpg,miss classification errors are concern
+000125_612645.4.jpg,

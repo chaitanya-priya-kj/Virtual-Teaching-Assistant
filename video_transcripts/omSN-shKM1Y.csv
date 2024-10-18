@@ -1,0 +1,118 @@
+Image Name,Transcript
+000000_700.7.jpg,okay so that next topic is called
+000001_734.1.jpg,
+000002_800.8.jpg,
+000003_834.2.jpg,
+000004_867.5.jpg,
+000005_900.9.jpg,
+000006_967.6.jpg,
+000007_1001.0.jpg,
+000008_1034.4.jpg,
+000009_1067.7.jpg,
+000010_1101.1.jpg,
+000011_5338.7.jpg,bagging or bootstrap aggregation which is an in a way of using trees and
+000012_10677.3.jpg,ensembl an average of trees to improve their prediction error and as well see
+000013_16016.0.jpg,that the bagging methods well I'll mention the bag method is due to leo breiman and it's kind of a bootstrap
+000014_21354.7.jpg,process and I remember seeing well first time I saw this what would that been maybe in the mid-90s I knew a lot about
+000015_26693.3.jpg,the bootstrap actually I was a student at Brett I found invented the bootstrap
+000016_32032.0.jpg,and Brad and I wrote a book together on the bootstrap in the early 90s and then when I when I saw other the bad idea
+000017_37370.7.jpg,from from leo I thought this looks really crazy usually the bootstrap was
+000018_42709.3.jpg,used to get a good idea of standard errors or bias but Leo wants to use bootstrap to get produce a whole bunch
+000019_48048.0.jpg,of trees and to average them which sounded really crazy to me and it was a reminder to me that you see an idea
+000020_53386.7.jpg,looks really crazy it's got a reasonable chance of actually being really good right if things look very familiar
+000021_58725.3.jpg,they're not they're not likely to be big steps forward this was a big step forward and took me and others a long
+000022_62028.6.jpg,time to realize that and and bagging and you'll see random forests that we're
+000023_62062.0.jpg,
+000024_64064.0.jpg,gonna talk about as well they used all
+000025_69402.7.jpg,over and I just was at a talk the other day we random forest was the primary
+000026_74741.3.jpg,tool used in a big image classification problem using state-of-the-art methods
+000027_79779.7.jpg,and random forests was at the heart of it okay so let's see what the back idea
+000028_79846.4.jpg,
+000029_79946.5.jpg,
+000030_80080.0.jpg,
+000031_80146.7.jpg,
+000032_80180.1.jpg,
+000033_80213.5.jpg,
+000034_80246.8.jpg,
+000035_80313.6.jpg,
+000036_80513.8.jpg,
+000037_80580.5.jpg,
+000038_80613.9.jpg,
+000039_80680.6.jpg,
+000040_85418.7.jpg,is so it's the basic it's a way of
+000041_90757.3.jpg,taking about a bunch of independent observation and taking their average to reduce variance so just recall if we had
+000042_126459.7.jpg,a bunch of observations e1 through Zn the independent observations with variance Sigma squared that if you take their average the variance of the mean of the mean Y bar is Sigma squared over N so by taking an average of independent things we reduced the variance by n that's good so what does that say to us in terms of supervised learning it says that we had more than one training set we could grow for example a tree on each training set and take the average tree right now that doesn't really help us probably cuz we don't have multiple training sets let's assume we just have our the weren't available training set well bagging is gonna is going to try to
+000043_256256.0.jpg,achieve this now by taking not without new training sets by taking bootstrap samples to create sort of pseudo training sets grow a tree on each one and then take their average that's the simple but I think very clever idea of bagging so we're gonna take bootstrap samples from a training set of the same size original sample that's the usual bootstrap and maybe draw a little picture here just so we can think about it here's our original training set we're gonna draw a bootstrap samples again they're samples taken with replace them of the same size from there's no data set and we'll take lots of them maybe a few hundred okay and for each one we're gonna grow a tree using for example the procedure we just went over do you on each of these training sets we're gonna get a tree okay actually quite big trees big trees Esther Esther I Sevilla tree but actually in fact we don't need to turns out we don't need to worry about proving the trees we can grow large trees and just when you average them will reduce variance we don't need to prune even it's another happy coincidence so in notation wise we'll call the tree that we grow on the beef tree again be going for maybe one to two hundred F hat star B of X so the prediction of feature X for the B three will call F hat star B of X our overall bagged estimate prediction is just the average so so in other words we grow these trees we have a new X and we want to predict it X we we ask each tree what's your prediction for X and that's f hat star BMX and we average the predictions and that's called bagging it's a really clever idea so you know that old idea of pruning a tree back was to reduce the variance you pruned it back but when you prune it back you give it a lot of bias because you make it necessarily just a much coarser tree so Brian's idea was don't prune back have bushy trees which tend to have low bias and get rid of the variance by doing this averaging right and we can apply this regression or classification here I've basically assumed we're doing regression so that the the predictions
+000044_261094.2.jpg,actually quantitative variable but within classification we can just do a majority vote so we can
+000045_268568.3.jpg,we can ask we can have 200 trees since we have two classes we we have make a prediction at each X and we ask each
+000046_272272.0.jpg,tree what's your class prediction and suppose of the 200 150 say class 1 and other 50
+000047_277610.7.jpg,say class 2 then our prediction is class 1 so we can just take a majority and
+000048_281214.3.jpg,vote among the B trees that we grow okay
+000049_348915.2.jpg,so here's actually the hard data this is the result of bagging the hard data so along the horizontal axis is the number of trees which we grew up to 300 trees in this case what do you see here well we have we have the test error of bagging first of all maybe we had a test set of the set aside and it's the black curve and it's errors around little over 0.25 if we go of the left here we'll see how she was also a single tree so in this case bagging improved a single tree maybe just by 1% error actually the dotted line is a single tree okay thank you so dialing single tree so it looks like we may have improved the prediction error by perhaps 1% not a great win in this one case the random forest which I'll talk about in a few slides is a sort of a it's a more advanced form of bagging where we do we do an another trick of Ryman's that's gonna prove things here by maybe another couple percent so in this in this figure we've also got two iroquois called out of bag for both for bagging and random forest we'll describe it for bagging now
+000050_349749.4.jpg,
+000051_349983.0.jpg,
+000052_352352.0.jpg,so the out of bag area is a very
+000053_357690.7.jpg,important part of bagging and random forest and it turns out it's a free essentially free way of computing leave
+000054_400400.0.jpg,one out cross validation and it works as follows each of those bootstrap samples includes about two-thirds of the observations and about one-third of the observations are left out and of course for each bootstrap sample a different one third is left out so suppose we want to compute the error for a particular observation well we can take all the the bootstrap samples that didn't include that observation and we just average their predictions for that observation and use them to predict that observation well that's going to be that observation wouldn't have been in those those training samples and so that's a lift out error estimate and so
+000055_416416.0.jpg,you can just accumulate those predictions in that fashion for each of the observations and that's called the out of bag error and if you think about it carefully if B is large the number of trees is large that's essentially leave one out cross validation and it just
+000056_419719.3.jpg,comes for free and so that's what was given in this slider so for for bagging
+000057_420253.2.jpg,
+000058_444844.4.jpg,that's the green curve and it's quite a bit lower than the the black curve above which is the the error on that on the test set the green curve and of course there's variability nice because these are just samples of numbers and so that variability is just due to the division of the test samples and the training samples okay so the the next idea that
+000059_445445.0.jpg,
+000060_445678.6.jpg,
+000061_446479.4.jpg,
+000062_446712.9.jpg,
+000063_448448.0.jpg,
+000064_453786.7.jpg,that leo breiman had a few years after baggy was called random force and the
+000065_480480.0.jpg,idea here is that we're taking an average and an error to be lower if the things being average have lower correlation so the idea of random force is to is to build trees in as such a ways to actually make the correlation between trees smaller even smaller than you get from bootstrapping exactly right and again yeah this is one of these ideas which when I first saw at least look really bizarre but it's a very clever thing so what is that idea well
+000066_485818.7.jpg,the ideas is we're gonna do bagging exactly the way we did before except with one change when we build the trees
+000067_491157.3.jpg,and we make splits every time we consider a split in a tree we don't
+000068_496496.0.jpg,consider all possible predictors as we normally do with trees but rather we
+000069_501834.7.jpg,select at random M predictors among the P and the M must say typically about the
+000070_507173.3.jpg,square root of P so they're words if there's a hundred predictors in our data set every time we go to make a split we
+000071_512512.0.jpg,don't consider all 100 but rather we take a random subset of ten of them and the other the other night did not have
+000072_517850.7.jpg,considered only the ten or even allowed to be considered for the splits and this the the random selection is made a new
+000073_523189.3.jpg,selection is made at every possible split and so again it seems kind of
+000074_528528.0.jpg,crazy to throw away most of the predictors at every split but the effect of doing this is that it
+000075_533866.7.jpg,it forces the trees to use different predictors to split at different times
+000076_539205.3.jpg,and since we're going to build lots of trees so if a good predictors left order
+000077_544544.0.jpg,to give them split it's gonna have lots of chances in that tree or in other trees to to make an appearance so
+000078_549882.7.jpg,although it seems crazy to throw away in the sense most of your predictor is that every at every stage since we're gonna
+000079_555221.3.jpg,build a large number of trees and then take the average it actually works out
+000080_560560.0.jpg,very well so even with the same training sample if you run this if you grow to two trees you'll get two different trees
+000081_565898.7.jpg,because by chance little picked up in variables each time okay so let's see
+000082_568034.1.jpg,how random forest does in the hard data
+000083_568434.5.jpg,
+000084_568901.7.jpg,
+000085_590656.7.jpg,in so remember the bagging error test error was about here and random forest improves by maybe one or two percent so again by doing this trick of throwing a predictors we've decorrelated the trees the resulting average seems to do a little better and then the out-of-bag estimate is also a little better than it was for bagging our next example is a
+000086_590756.8.jpg,
+000087_590990.4.jpg,
+000088_591757.8.jpg,
+000089_591991.4.jpg,
+000090_592592.0.jpg,
+000091_597930.7.jpg,high-dimensional example from chapter 8 on gene expression so this is using the
+000092_603269.3.jpg,the the gene expression from 349 patients since your cancer patients the gene expression of 4718 genes to predict
+000093_608608.0.jpg,their cancer class and this is a common
+000094_613946.7.jpg,activity and among people and statistics of genomics to try to do classification into things like cancer class but based
+000095_619285.3.jpg,on that the gene expression of genes and cells so in this case is actually 15 classes the one class is healthy or
+000096_624624.0.jpg,normal and there's 14 different types of cancer so we're gonna apply the that the
+000097_629962.7.jpg,random forest method we just described to this high dimensional data but
+000098_635301.3.jpg,instead of using the entire set of forty 718 genes we're gonna actually going to pre-screen the genes we choose that the
+000099_640640.0.jpg,genes having the highest variance across the training set and it kind of makes sensitive if we want to reduce number of
+000100_645978.7.jpg,genes to use variants because if something has small variants across the training set it's probably not very
+000101_651317.3.jpg,predictive right so choosing the one had to have the largest variants are they're
+000102_656656.0.jpg,the ones that are most likely to be predictive so is that cheating room you
+000103_667333.3.jpg,went from you force 4700 genes down to 500 genes that's a good question is it is it cheating as advising things well it's not because with the outcome the class
+000104_672672.0.jpg,is not being used to choose the genes it would have been a problem if we chose the genes that that very the most from
+000105_678010.7.jpg,one class to another our words if we if we actually if we use the class label to
+000106_683349.3.jpg,choose the genes but because we're just doing this doing this just looking at the overall variance without regard to
+000107_688688.0.jpg,the class table this is this is fine it's not gonna buy us our results unsupervised screening exactly so
+000108_694026.7.jpg,supervised screening is it creates a bias in our would creates a bias in our
+000109_699365.3.jpg,cross-validation or the out-of-bag estimates but if we do it unsupervised it's no problem
+000110_704704.0.jpg,let's ret so we're doing here so again for comparison purposes we divided the
+000111_710042.7.jpg,the data into a training and a test set we applied that by random force to the
+000112_715381.3.jpg,training set and for three different vet values of the M which is the number of
+000113_720720.0.jpg,variables that we choose at each each split the random number that were among
+000114_722421.7.jpg,which we're going to choose at each split so let's see the results so again
+000115_824990.8.jpg,a horizontal axis has a number of trees total number of trees we go up to about 500 on the Left we have the single tree results so remember we was saying quite often that the trees are attractive because they're interpreted well but they really don't often predict well and here we see a case where they're predicting pretty badly here's the single tree and it's it's error is upwards of 50 or 60 percent I remember there's 15 classes so an error of 60 or 70% isn't crazy right because there's so many classes but it's still so I'm not very good it's interesting Rob out quickly the error comes down with random forests and then sort of levels off it doesn't take long before it by about a hundred trees it's kind of leveled off and not really changing that much exactly since Oh in that levels around so we look at looks like the best is around well if we use M equals P which is just bagging right that means at every split we're using all possible predictors or considering all possible predictors that's that's bagging those are usual trees that gives us the gold curve random force the green one with the square root of P that's we're throwing away we're retaining square root P and throwing the rest away you see it gives us a improvement of perhaps three or four percent over banging one nice thing about Brandon forests and bagging is that you can't over foot by putting in too many fees that's the only benefit of adding more trees as it brings a variance down more but that at some point that variance to stops decreasing and adding more trees does doesn't help you at all but it never will hurt you so that by looking at for example is out of bag errors you can just decide when you've done enough
+000116_825624.8.jpg,
