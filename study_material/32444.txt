@@ -1,0 +1,154 @@
+ 
+ USC VITERBI SCHOOL OF ENGINEERING  
+ 
+DSCI  550: Data Science at Scale  
+Spring  2024 (4 units ), 5:00 – 6:50 PM, TTh .  
+Class location: MHP 101 
+ 
+ Syllabus  
+ 
+Instructor: Dr. Seon Ho Kim    Course Producer : TBD  
+Email: seonkim@usc.edu      
+Office: PHE33 4      
+Phone: 213.871.0876         
+ 
+Instructor ’s Office Hours:  
+Mon day 3:00 pm  to 5:00 pm at PHE334 . Online connection using Zoom  
+(https://usc.zoom.us/j/92999133208?pwd=aGRLdFNOdWxSeWV6SHhmYzJYRm8vQT09  ) will 
+be also available during the office hour. Other hours by appointment only. Students are advised to 
+make appointments with the professor ahead of time in any event and be specific with the subject 
+matter to be discussed. Students should also be prepared for their appointment by bringing all 
+applicable materials and information.  
+ 
+Course Description:  
+This course is designed as an overview course to give non-engineering background  students a 
+broad understanding of data science  topics for big data and to get practical experience with key 
+big data informa tics techniques. Topics include roadmap of informatics, the data lifecycle, the 
+role of the data scientist, brief introduction to machine learning and data mining, analyzing and 
+exploring big data with real world use cases , introduction to big data management eco system , 
+and data visualization . Homework assignments and projects will give students practical 
+experience with important topics covered in the course.  This class will be primarily individual 
+and/or team study, wit h assigned readings, homework /projects  assignments, a midterm exam , and 
+a final.  
+Recommended Preparation:  
+A basic understanding of engineering pri nciples and programming language is desirable . 
+Books and Readings:  
+No textbook but reading materials will be provided.  
+ 
+Lecture notes  will be available in the Class Blackboard.  
+ 
+Grading:  
+Exams: 50% (midterm  20%, Final 30%), Homework  20%, Project: 25%, Attendance 5%   
+# Any l ate submission  will be penalized, 30% per day.  
+* The instructor reserves the right to make changes to the grading criteria, assignments 
+and course outline to best serve the needs of the class.   
+ Course Schedule  (Tentative)  
+ 
+Week  Topic  Readings  
+1 Class Introduction  
+Introduction to Data 
+Informatics  Lecture Note  
+2 Overview of Big Data  
+Basic Background  
+(stat, programming)  Lecture Note  
+3 Basic Background  
+(stat, programming)  Lecture Note  
+4 Machine Learning 1 
+Class Project Discussion  Lecture Note  
+5 Machine Learning 1 Lecture Note  
+ 
+6  
+ Machine Learning 2  
+ Lecture Note  
+7 Data Mining 1  
+ Lecture Note  
+8 Midterm  
+Data Mining 2  2/27 In-person ex am  
+Lecture Note  
+9 Project Progress Review   
+ 
+10 
+  Spring Recess  
+11 
+ Introduction to Hadoop 
+Ecosystem  Lecture Note  
+12 
+ Introduction to Hadoop 
+Ecosystem  Lecture Note  
+13  
+NoSQL   
+Lecture Note  
+14 
+ HBase  Lecture Note  
+ 
+15 Introduction to Data 
+Visualization  Lecture Note  
+16 
+ Final Exam Review  
+Final Project Review   
+ Final Exam   TBD  
+ 
+Note:  
+1. In your HW, exam, project, and email, please use only the name registered in USC 
+roster system!  
+2. No live lecture will be recorded so your attendance is important!  
+Students with Disabilities:  
+Any student requesting academic accommodations based on a disability is required to register 
+with Disability Services and Programs (DSP) each semester. A letter of verification for approved  
+ accommodations can be obtained from DSP. Please be sure the letter is delivered to me as early in 
+the semester as possible. Your letter must be specific as to the nature of any accommodations 
+granted. DSP is located in STU 301 and is open 8:30 am to 5:30 pm, Monday through Friday. 
+The telephone number for DSP is (213) 740 -0776.  
+ 
+Academic Integrity:  
+USC seeks to maintain an optimal learning environment. General principles of academic honesty 
+include the concept of respect for the intellectual property of others, the expectation that 
+individual work will be submitted unless otherwise allowed by an instructor, and the obligations 
+both to protect one’s own academic work from misuse by others as well as to avoid using 
+another’s work as one’s own. All students are expected to understand and abide by these 
+principles. SCampus, the Student Guidebook, ( www.usc.edu/scampus or http://scampus.usc.edu ) 
+contains the University Student Conduct Code (see University Governance, Section 11.00), while 
+the recommended sanctions are located in Appendix A.  
+The University, as an instrument of learning, is predicated on the existence of an environment of 
+integrity. As members of the academic community, faculty, students, and administrative officials 
+share the responsibility for maintaining this environment. Faculties have the primary 
+responsibility for establishing and maintaining an atmosphere and attitude of academic integrity 
+such that the enterprise may flourish in an open and honest way. Students share this responsibility 
+for maintaining standards of academic performance and classroom behavior conducive to the 
+learning process. Administrative officials are responsible for the establishment and maintenance 
+of procedures to support and enforce those academic standards. Thus, the entire University 
+community bears the responsibility for maintaining an environment of integrity and for taking 
+appropriate action to sanction individuals involved in any violation. When there is a clear 
+indication that such individuals are unwilling or unable to support these standards, they should 
+not be allowed to remain in the University.” 
+(http://policies.usc.edu/p4acad_stud/facultyhandbook.pdf)  
+Academic dishonesty includes: (http://policies.usc.edu/p4acad_stud/facultyhandbook.pdf)  
+• Examination behavior – any use of external assistance during an examination shall be 
+considered academically dishonest unless expressly permitted by the teacher.  
+• Fabrication – any intentional falsification or invention of data or citation in an academic 
+exercise will be considered a violation of academic integrity.  
+• Plagiarism – the appropriation and subsequent passing off of another’s ideas or words as 
+one’s own. If the words or ideas of another are used, acknowledgment of the original 
+source must be made through recognized referencing practices.  
+• Other Types of Academic Dishonesty – submitting a paper written by or obtained from 
+another, using a paper or essay in more than one class without the teacher’s  express 
+permission, obtaining a copy of an examination in advance without the knowledge and 
+consent of the teacher, changing academic records outside of normal procedures and/or 
+petitions, using another person to complete homework assignments or take -home exams 
+without the knowledge or consent of the teacher.  
+The use of unauthorized material, communication with fellow students for course assignments, or 
+during a mid -term examination, attempting to benefit from work of another student, past or  
+ present and similar behavior that defeats the intent of an assignment or mid -term examination, is 
+unacceptable to the University. It is often difficult to distinguish between a culpable act and 
+inadvertent behavior resulting from the nervous tensions accompanying examinations. Where a 
+clear violation has occurred, however, the instructor may disqualify the student’s work as 
+unacceptable and assign a failing mark on the paper.  
+ 
+Return of Course Assignments:  
+Returned paperwork, unclaimed by a student, will be discarded after a year and hence, will not be 
+available should a grade appeal be pursued following receipt of his/her grade.  
+Emergency Preparedness/Course Continuity in a Crisis:  
+In case of a declared emergency if travel to campus is not feasible, USC executive leadership will 
+announce an electronic way for instructors to teach students in their residence halls or homes 
+using a combination of Blackboard, teleconferencing, and other technologies.  
+ 
